@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="3000"
+        app:motionInterpolator="bounce">
+        <OnClick
+            app:clickAction="toggle"
+            app:touchAnchorId="@id/view" />
+    </Transition>
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/view">
+            <Motion app:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@android:color/holo_purple" />
+
+            <CustomAttribute
+                app:attributeName="Saturation"
+                app:customFloatValue="1" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/view">
+            <Layout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@android:color/holo_green_light" />
+
+            <CustomAttribute
+                app:attributeName="Saturation"
+                app:customFloatValue="0" />
+            <Transform
+                android:rotation="360"
+                android:scaleX="0.88"
+                android:scaleY="0.88" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>
